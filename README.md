@@ -10,15 +10,18 @@
 
 ## PROGRAM: 
 ## Step 1: Install required packages
+```
 !pip install -q librosa soundfile
-
+```
 ## Step 2: Upload audio file
+```
 from google.colab import files
 uploaded = files.upload()   # choose your .wav / .mp3 / .flac file
 filename = next(iter(uploaded.keys()))
 print("Uploaded:", filename)
-
+```
 ## Step 3: Load audio
+```
 import librosa, librosa.display
 import numpy as np
 import soundfile as sf
@@ -26,12 +29,14 @@ import soundfile as sf
 y, sr = librosa.load(filename, sr=None, mono=True)  
 duration = len(y) / sr
 print(f"Sample rate = {sr} Hz, duration = {duration:.2f} s, samples = {len(y)}")
-
+```
 ## Step 4: Play audio
+```
 from IPython.display import Audio, display
 display(Audio(y, rate=sr))
-
+```
 ## Step 5: Full FFT (DFT) analysis
+```
 import matplotlib.pyplot as plt
 
 n_fft = 2**14   
@@ -56,15 +61,17 @@ plt.ylabel("Magnitude (log scale)")
 plt.title("FFT Magnitude Spectrum (log scale)")
 plt.grid(True)
 plt.show()
-
+```
 ## Step 6: Top 10 dominant frequencies
+```
 N = 10
 idx = np.argsort(magnitude)[-N:][::-1]
 print("\nTop 10 Dominant Frequencies:")
 for i, k in enumerate(idx):
     print(f"{i+1:2d}. {freqs[k]:8.2f} Hz  (Magnitude = {magnitude[k]:.2e})")
-
+```
 ## Step 7: Spectrogram (STFT)
+```
 n_fft = 2048
 hop_length = n_fft // 4
 D = librosa.stft(y, n_fft=n_fft, hop_length=hop_length, window='hann')
@@ -77,6 +84,7 @@ plt.colorbar(format="%+2.0f dB")
 plt.title("Spectrogram (dB)")
 plt.ylim(0, sr/2)
 plt.show()
+```
 ## AUDIO USED:
 [mixkit-small-crowd-laugh-and-applause-422.wav](https://github.com/user-attachments/files/22463928/mixkit-small-crowd-laugh-and-applause-422.wav)
 
