@@ -1,17 +1,14 @@
 # EXP 1 :  ANALYSIS OF DFT WITH AUDIO SIGNAL
 
-# AIM: 
+## AIM: 
 
   To analyze audio signal by removing unwanted frequency. 
 
-# APPARATUS REQUIRED: 
+## APPARATUS REQUIRED: 
    
    PC installed with SCILAB/Python. 
 
-# PROGRAM: 
-
-// analyze audio signal
-
+## PROGRAM: 
 ## Step 1: Install required packages
 !pip install -q librosa soundfile
 
@@ -80,10 +77,10 @@ plt.colorbar(format="%+2.0f dB")
 plt.title("Spectrogram (dB)")
 plt.ylim(0, sr/2)
 plt.show()
-# AUDIO USED:
+## AUDIO USED:
 [mixkit-small-crowd-laugh-and-applause-422.wav](https://github.com/user-attachments/files/22463928/mixkit-small-crowd-laugh-and-applause-422.wav)
 
-# OUTPUT: 
+## OUTPUT: 
 Top 10 Dominant Frequencies:
  1.    69.98 Hz  (Magnitude = 6.79e+00)
  2.   282.62 Hz  (Magnitude = 5.87e+00)
@@ -99,7 +96,7 @@ Top 10 Dominant Frequencies:
 <img width="357" height="143" alt="image" src="https://github.com/user-attachments/assets/b451c85c-9ad6-4875-a106-81821fe25ece" />
 
 
-# RESULTS
+## RESULTS
 THUS,THE ANALYSIS OF DFT WITH AUDIO SIGNAL IS VERIFIED
 
 
